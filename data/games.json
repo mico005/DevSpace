@@ -46,7 +46,7 @@
       "featured": true,
       "thumbnail": "media/imgs/hollow1.jpeg",
       "banner": "media/imgs/hollow1.jpeg",
-      "trailer": "media/vids/Trailers.mp4",
+      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778163926/Trailers_oqno51.mp4",
       "screenshots": ["media/imgs/hollow1.jpeg", "img/hollow2.jpg"],
       "specs": {
         "min": "8GB RAM, GTX 1050 Ti, i5-7400, Windows 10",
