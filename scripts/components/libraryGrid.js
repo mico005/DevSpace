@@ -5,7 +5,14 @@ import { getGenreColor, getCardInitials } from "../utils/helpers.js";
 
 const CARD_ANIMATION_STEP_MS = 40;
 
+// ... existing imports ...
+
 function buildThumbnailHtml(game) {
+  if (game.thumbnail) {
+    return `<img src="${game.thumbnail}" alt="${game.title} cover" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;" />`;
+  }
+
+  // Fallback if no thumbnail is provided in JSON
   const color = getGenreColor(game.genre);
   const letters = getCardInitials(game.title);
 
@@ -24,6 +31,8 @@ function buildThumbnailHtml(game) {
     </div>
   `;
 }
+
+// ... rest of the file ...
 
 function triggerDownloadSim(btn, event) {
   event.stopPropagation();

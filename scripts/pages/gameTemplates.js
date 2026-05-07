@@ -3,66 +3,92 @@
 
 import { getGenreColor, buildRatingStars } from "../utils/helpers.js";
 
-function buildHeroBackdropHtml(game) {
-  const color = getGenreColor(game.genre);
-  return `
-    <div style="
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg,
-        ${color}18 0%, #0a0a0f 50%, #16161f 100%
-      );
-    "></div>
-    <div style="
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(${color}08 1px, transparent 1px),
-        linear-gradient(90deg, ${color}08 1px, transparent 1px);
-      background-size: 44px 44px;
-    "></div>
-  `;
+// Exported so game.js can swap the main viewer content dynamically
+function buildMainMediaHtml(type, src) {
+  if (type === "video") {
+    // Browsers require autoplaying media to be muted
+    const autoplayUrl = src.includes("?")
+      ? `${src}&autoplay=1&mute=1`
+      : `${src}?autoplay=1&mute=1`;
+
+    return `
+      <iframe
+        class="main-media-iframe"
+        src="${autoplayUrl}"
+        title="Gameplay Trailer"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    `;
+  }
+  return `<img src="${src}" class="main-media-image" alt="Gameplay Media" />`;
 }
 
-function buildGalleryThumbHtml(game, index) {
+function buildHeroBackdropHtml(game) {
+  if (game.banner) {
+    return `<img src="${game.banner}" alt="${game.title} Banner" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;" />`;
+  }
+
   const color = getGenreColor(game.genre);
   return `
-    <div class="gallery-thumb">
-      <div class="gallery-thumb-inner" style="
-        background: linear-gradient(135deg,
-          ${color}22 0%, #16161f 60%, ${color}11 100%
-        );
-        display: flex; align-items: center; justify-content: center;
-      ">
-        <span style="
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: 1.5rem; color: ${color}44;
-          letter-spacing: 0.06em;
-        ">SCREENSHOT ${index + 1}</span>
-      </div>
-      <div class="gallery-thumb-overlay">⊕</div>
-    </div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, ${color}18 0%, #0a0a0f 50%, #16161f 100%);"></div>
+    <div style="position: absolute; inset: 0; background-image: linear-gradient(${color}08 1px, transparent 1px), linear-gradient(90deg, ${color}08 1px, transparent 1px); background-size: 44px 44px;"></div>
   `;
 }
 
 function buildGalleryHtml(game) {
-  const count     = Math.min(game.screenshots.length, 3);
-  const thumbsHtml = Array.from({ length: count }, (_, i) =>
-    buildGalleryThumbHtml(game, i)
-  ).join("");
+  // Combine trailer and screenshots into a unified media array
+  const mediaItems = [];
+  if (game.trailer) mediaItems.push({ type: "video", src: game.trailer });
+  if (game.screenshots) {
+    game.screenshots.forEach((url) =>
+      mediaItems.push({ type: "image", src: url }),
+    );
+  }
+
+  if (mediaItems.length === 0) return "";
+
+  // Build the thumbnail track
+  const thumbsHtml = mediaItems
+    .map((item, index) => {
+      const isVideo = item.type === "video";
+      const thumbImg = isVideo
+        ? game.thumbnail ||
+          game.banner ||
+          (game.screenshots && game.screenshots[0]) ||
+          ""
+        : item.src;
+      const activeClass = index === 0 ? "active" : "";
+      const overlayIcon = isVideo ? `<div class="thumb-play-icon">▶</div>` : "";
+
+      return `
+      <button class="gallery-track-thumb ${activeClass}" data-type="${item.type}" data-src="${item.src}" aria-label="View media ${index + 1}">
+        ${thumbImg ? `<img src="${thumbImg}" alt="Thumb ${index}" loading="lazy" />` : `<div style="width:100%;height:100%;background:var(--border);"></div>`}
+        <div class="thumb-overlay">${overlayIcon}</div>
+      </button>
+    `;
+    })
+    .join("");
 
   return `
     <section class="gallery-section">
       <div class="section-label">Gameplay Gallery</div>
-      <div class="trailer-placeholder"
-           role="button" tabindex="0"
-           aria-label="Watch gameplay trailer">
-        <div class="play-icon">▶</div>
-        <div class="trailer-label">Watch Gameplay Trailer</div>
+      <div class="gallery-carousel">
+        <div class="gallery-main-view">
+          <button class="gallery-control-btn prev-btn" id="gallery-prev-btn" aria-label="Previous media">❮</button>
+          <button class="gallery-control-btn next-btn" id="gallery-next-btn" aria-label="Next media">❯</button>
+          <div id="gallery-media-container" style="width: 100%; height: 100%;">
+            ${buildMainMediaHtml(mediaItems[0].type, mediaItems[0].src)}
+          </div>
+        </div>
+        <div class="gallery-thumb-track" id="gallery-thumb-track">
+          ${thumbsHtml}
+        </div>
       </div>
-      <div class="gallery-grid">${thumbsHtml}</div>
     </section>
   `;
 }
-
 function buildTagsHtml(tags) {
   return tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
 }
@@ -105,24 +131,12 @@ function buildPurchasePanelHtml(game) {
         <span class="panel-rating-stars">${buildRatingStars(game.rating)}</span>
         <span>${game.rating} / 5.0</span>
       </div>
-      <button class="buy-btn" id="buy-button"
-              aria-label="Buy ${game.title} for ${game.price}">
-        BUY NOW
-      </button>
+      <button class="buy-btn" id="buy-button" aria-label="Buy ${game.title} for ${game.price}">BUY NOW</button>
       <button class="wishlist-btn" id="add-cart-button">+ Add to Cart</button>
       <hr class="panel-divider" />
-      <div class="panel-meta-row">
-        <span class="panel-meta-key">Genre</span>
-        <span class="panel-meta-val">${game.genre}</span>
-      </div>
-      <div class="panel-meta-row">
-        <span class="panel-meta-key">Developer</span>
-        <span class="panel-meta-val">${game.developer}</span>
-      </div>
-      <div class="panel-meta-row">
-        <span class="panel-meta-key">Platform</span>
-        <span class="panel-meta-val">Windows / Mac</span>
-      </div>
+      <div class="panel-meta-row"><span class="panel-meta-key">Genre</span><span class="panel-meta-val">${game.genre}</span></div>
+      <div class="panel-meta-row"><span class="panel-meta-key">Developer</span><span class="panel-meta-val">${game.developer}</span></div>
+      <div class="panel-meta-row"><span class="panel-meta-key">Platform</span><span class="panel-meta-val">Windows / Mac</span></div>
       <div class="panel-secure-note">🔒 Secure checkout · Instant download</div>
     </aside>
   `;
@@ -150,4 +164,5 @@ function buildDetailPageHtml(game) {
   `;
 }
 
-export { buildDetailPageHtml };
+// Export the newly separated main media builder
+export { buildDetailPageHtml, buildMainMediaHtml };

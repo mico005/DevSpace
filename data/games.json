@@ -10,6 +10,7 @@
       "description": "A fast-paced cyberpunk platformer set in a dystopian megacity. Dodge laser grids, hack security systems, and outrun corporate enforcers across 40 handcrafted levels. Featuring a synthwave soundtrack and fluid wall-running mechanics that reward mastery.",
       "tags": ["Cyberpunk", "Platformer", "Action"],
       "featured": true,
+      "trailer": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": ["img/neon1.jpg", "img/neon2.jpg", "img/neon3.jpg"],
       "specs": {
         "min": "4GB RAM, GTX 750, i5-4460, Windows 10",
@@ -26,6 +27,7 @@
       "description": "Descend into a bioluminescent underground world teeming with alien flora and ancient mysteries. Craft tools from rare minerals, cultivate symbiotic plants, and unravel the story of a civilization that fled underground centuries ago.",
       "tags": ["Exploration", "Crafting", "Mystery"],
       "featured": true,
+      "trailer": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": ["img/verdant1.jpg", "img/verdant2.jpg"],
       "specs": {
         "min": "6GB RAM, GTX 960, i5-6500, Windows 10",
@@ -42,7 +44,10 @@
       "description": "A haunting action-RPG set in a world where time has shattered into overlapping eras. Shift between past and future versions of every location, manipulating history to forge a new present. Features 60+ hours of non-linear storytelling.",
       "tags": ["RPG", "Time Travel", "Story-Rich"],
       "featured": true,
-      "screenshots": ["img/hollow1.jpg", "img/hollow2.jpg"],
+      "thumbnail": "media/imgs/hollow1.jpeg",
+      "banner": "media/imgs/hollow1.jpeg",
+      "trailer": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "screenshots": ["media/imgs/hollow1.jpeg", "img/hollow2.jpg"],
       "specs": {
         "min": "8GB RAM, GTX 1050 Ti, i5-7400, Windows 10",
         "rec": "16GB RAM, RTX 2070, i7-9700K, Windows 10/11"
@@ -58,6 +63,7 @@
       "description": "A serene puzzle game set atop stormy Nordic peaks. Guide wind currents to carry seeds across treacherous cliffs, regrowing a shattered mountain ecosystem. 80 meditative levels with no timers, no enemies — just you and the elements.",
       "tags": ["Puzzle", "Relaxing", "Nature"],
       "featured": false,
+      "trailer": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": ["img/salt1.jpg", "img/salt2.jpg"],
       "specs": {
         "min": "4GB RAM, Intel HD 620, i3-6100, Windows 10",
@@ -74,6 +80,7 @@
       "description": "Command a mercenary trading convoy across a fractured continent. Negotiate with warlords, manage crew morale, and make split-second decisions when bandits ambush your route. Every playthrough generates a new political map.",
       "tags": ["Strategy", "Trading", "Roguelite"],
       "featured": false,
+
       "screenshots": ["img/iron1.jpg", "img/iron2.jpg"],
       "specs": {
         "min": "4GB RAM, Intel HD 630, i3-7100, Windows 10",
@@ -90,6 +97,7 @@
       "description": "Survive the collapse of a forest ecosystem by playing as a network of underground mycelium. Spread your fungal network, trade nutrients with trees, and defend against invasive species in this unique survival-strategy hybrid.",
       "tags": ["Survival", "Unique", "Strategy"],
       "featured": false,
+      "trailer": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": ["img/deep1.jpg", "img/deep2.jpg"],
       "specs": {
         "min": "4GB RAM, GTX 950, i5-4590, Windows 10",
@@ -106,6 +114,7 @@
       "description": "A rhythm game where the entire world is your instrument. Every surface, enemy, and platform produces sound — build up a live musical composition as you traverse each stage. Features 30 original tracks from indie electronic artists.",
       "tags": ["Rhythm", "Music", "Indie"],
       "featured": true,
+      "trailer": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": ["img/phase1.jpg", "img/phase2.jpg"],
       "specs": {
         "min": "4GB RAM, Intel HD 4000, i3-4130, Windows 10",

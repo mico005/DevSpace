@@ -10,11 +10,17 @@ function buildDiscoverButton(game) {
 }
 
 function buildHeroSlideHtml(game, index) {
-  const bgClass = HERO_BG_CLASSES[index % HERO_BG_CLASSES.length];
+  const fallbackClass = HERO_BG_CLASSES[index % HERO_BG_CLASSES.length];
+
+  // Use the banner image if it exists, otherwise use the fallback CSS class
+  const bgClass = game.banner ? "hero-bg" : `hero-bg ${fallbackClass}`;
+  const inlineStyle = game.banner
+    ? `background-image: url('${game.banner}'); background-size: cover; background-position: center;`
+    : "";
 
   return `
     <div class="carousel-slide" data-index="${index}">
-      <div class="hero-bg ${bgClass}">
+      <div class="${bgClass}" style="${inlineStyle}">
         <div class="hero-grid-lines"></div>
       </div>
       <div class="hero-content">
