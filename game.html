@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevSpace — Game Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/game.css" />
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">DEV<span>SPACE</span></a>
+      <a href="index.html" class="nav-back">← Back to Games</a>
+    </nav>
+
+    <!-- MAIN CONTENT (JS-rendered) -->
+    <main id="game-page">
+      <div class="page-loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-label">Loading Game Data</div>
+      </div>
+    </main>
+
+    <!-- CHECKOUT MODAL OVERLAY -->
+    <div
+      id="checkout-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Checkout"
+    >
+      <div id="checkout-modal"></div>
+    </div>
+
+    <script type="module" src="scripts/pages/game.js"></script>
+  </body>
+</html>

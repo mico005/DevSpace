@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevSpace — Indie Games Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">DEV<span>SPACE</span></a>
+      <ul class="nav-links">
+        <li><a href="#">Browse</a></li>
+        <li><a href="#">New Releases</a></li>
+        <li><a href="#">Top Rated</a></li>
+        <li><a href="#" class="nav-badge">Submit Game</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO (JS-rendered) -->
+    <section
+      class="hero"
+      id="hero-section"
+      aria-label="Featured Games"
+    ></section>
+
+    <!-- CATALOG HEADER -->
+    <div class="section-header">
+      <h2 class="section-title">All <em>Games</em></h2>
+      <span class="section-count" id="game-count">— games</span>
+    </div>
+
+    <!-- FILTER BAR (JS-rendered) -->
+    <div
+      class="filter-bar"
+      id="filter-bar"
+      role="group"
+      aria-label="Filter by genre"
+    ></div>
+
+    <!-- CATALOG GRID (JS-rendered, skeleton shown initially) -->
+    <div id="game-catalog">
+      <div class="loading-grid" id="skeleton-grid"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">DEVSPACE</div>
+      <div class="footer-copy">© 2026 DevSpace · An Indie Game Distribution Platform</div>
+    </footer>
+
+    <script type="module" src="scripts/pages/home.js"></script>
+  </body>
+</html>
