@@ -2,7 +2,8 @@
 // Single Responsibility: Modal lifecycle, payment selection state, confirm flow
 
 import { buildModalHtml, buildSuccessHtml } from "./checkoutTemplates.js";
-import { removeGamesFromCart } from "../utils/cartState.js"; // <-- Updated import
+import { removeGamesFromCart } from "../utils/cartState.js";
+import { addGamesToLibrary } from "../utils/libraryState.js"; // <-- NEW IMPORT
 
 const OVERLAY_ID = "checkout-overlay";
 const MODAL_ID = "checkout-modal";
@@ -59,6 +60,9 @@ function showSuccessAndAutoClose(games) {
   // Extract IDs of purchased games and remove ONLY those from the cart
   const purchasedIds = games.map((g) => g.id);
   removeGamesFromCart(purchasedIds);
+
+  // <-- NEW: Add to session storage library
+  addGamesToLibrary(games);
 
   setTimeout(closeCheckoutModal, AUTO_CLOSE_DELAY_MS);
 }

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevSpace — My Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="styles/library.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="nav-logo">DEV<span>SPACE</span></a>
+      <ul class="nav-links">
+        <li>
+          <a href="library.html" style="color: var(--text)">My Library</a>
+        </li>
+        <li style="margin-left: 1rem">
+          <a
+            href="#"
+            class="nav-cart-btn"
+            id="nav-cart-btn"
+            aria-label="Shopping Cart"
+          >
+            <i class="bi bi-cart3" style="font-size: 1.25rem"></i>
+            <span class="nav-cart-badge" id="nav-cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="library-layout">
+      <div class="library-header">
+        <h1 class="library-title">My Library</h1>
+      </div>
+      <div id="library-container"></div>
+    </main>
+
+    <div
+      id="cart-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Shopping Cart"
+    >
+      <div id="cart-modal"></div>
+    </div>
+    <div
+      id="checkout-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Checkout"
+    >
+      <div id="checkout-modal"></div>
+    </div>
+
+    <footer>
+      <div class="footer-logo">DEVSPACE</div>
+      <div class="footer-copy">
+        © 2026 DevSpace · An Indie Game Distribution Platform
+      </div>
+    </footer>
+
+    <script type="module" src="scripts/pages/library.js"></script>
+  </body>
+</html>
