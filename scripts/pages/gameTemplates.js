@@ -6,20 +6,18 @@ import { getGenreColor, buildRatingStars } from "../utils/helpers.js";
 // Exported so game.js can swap the main viewer content dynamically
 function buildMainMediaHtml(type, src) {
   if (type === "video") {
-    // Browsers require autoplaying media to be muted
-    const autoplayUrl = src.includes("?")
-      ? `${src}&autoplay=1&mute=1`
-      : `${src}?autoplay=1&mute=1`;
-
     return `
-      <iframe
-        class="main-media-iframe"
-        src="${autoplayUrl}"
+      <video 
+        class="main-media-video" 
+        controls 
+        autoplay 
+        preload="auto" 
         title="Gameplay Trailer"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+      >
+        <source src="${src}" type="video/mp4" />
+        <source src="${src.replace(".mp4", ".webm")}" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
     `;
   }
   return `<img src="${src}" class="main-media-image" alt="Gameplay Media" />`;

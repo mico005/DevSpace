@@ -108,11 +108,13 @@
 }
 
 .main-media-iframe,
+.main-media-video,
 .main-media-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  background: #000; /* Keeps letterboxing clean if aspect ratios don't perfectly match */
 }
 
 .gallery-thumb-track {
