@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/game.css" />
   </head>
@@ -17,7 +18,17 @@
     <!-- NAV -->
     <nav>
       <a href="index.html" class="nav-logo">DEV<span>SPACE</span></a>
-      <a href="index.html" class="nav-back">← Back to Games</a>
+      <ul class="nav-links">
+        <li><a href="#">New Releases</a></li>
+        <li><a href="#">Top Rated</a></li>
+        <li><a href="#" class="nav-badge">Submit Game</a></li>
+        <li style="margin-left: 1rem;">
+          <a href="#" class="nav-cart-btn" id="nav-cart-btn" aria-label="Shopping Cart">
+            <i class="bi bi-cart3" style="font-size: 1.25rem;"></i>
+            <span class="nav-cart-badge" id="nav-cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <!-- MAIN CONTENT (JS-rendered) -->
@@ -35,6 +46,14 @@
       aria-modal="true"
       aria-label="Checkout"
     >
+      <div id="checkout-modal"></div>
+    </div>
+
+    <div id="cart-overlay" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+      <div id="cart-modal"></div>
+    </div>
+
+    <div id="checkout-overlay" role="dialog" aria-modal="true" aria-label="Checkout">
       <div id="checkout-modal"></div>
     </div>
 

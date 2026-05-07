@@ -1,10 +1,10 @@
 // scripts/pages/home.js — Homepage Orchestrator (DevSpace)
 // Single Responsibility: Fetches data and coordinates homepage component rendering
 
-import { fetchAllGames }  from "../api/data.js";
-import { buildHeroSection } from "../components/hero.js";
-import { buildGameGrid }  from "../components/grid.js";
-import { buildFilterBar } from "../components/filters.js";
+import { fetchAllGames } from "../api/data.js";
+import { initHeroCarousel } from "../components/hero.js";
+import { initBrowseController } from "../components/browse.js";
+import { initCartUI } from "../components/cartModal.js"; // <-- CART IMPORTED HERE
 
 const SKELETON_COUNT = 8;
 
@@ -38,26 +38,20 @@ function showErrorState(container) {
   `;
 }
 
-function updateGameCount(count) {
-  const countEl = document.getElementById("game-count");
-  if (countEl) countEl.textContent = `${count} games`;
-}
-
 function getUniqueGenres(games) {
   return [...new Set(games.map((g) => g.genre))];
 }
 
 function getFeaturedGames(games) {
-  return games.filter((g) => g.featured).slice(0, 3);
+  return games.filter((g) => g.featured === true);
 }
 
 async function initHomepage() {
-  const skeletonGrid    = document.getElementById("skeleton-grid");
+  const skeletonGrid = document.getElementById("skeleton-grid");
   const catalogContainer = document.getElementById("game-catalog");
-  const heroSection     = document.getElementById("hero-section");
-  const filterBar       = document.getElementById("filter-bar");
+  const heroSection = document.getElementById("hero-section");
 
-  mountSkeletonCards(skeletonGrid);
+  if (skeletonGrid) mountSkeletonCards(skeletonGrid);
 
   const games = await fetchAllGames();
 
@@ -66,12 +60,14 @@ async function initHomepage() {
     return;
   }
 
-  buildHeroSection(heroSection, getFeaturedGames(games));
+  // 1. Initialize Hero Carousel
+  initHeroCarousel(heroSection, getFeaturedGames(games));
 
-  catalogContainer.innerHTML = "";
-  buildGameGrid(catalogContainer, games);
-  buildFilterBar(filterBar, games, catalogContainer, getUniqueGenres(games));
-  updateGameCount(games.length);
+  // 2. Initialize Sidebar Filters & Search
+  initBrowseController(games, getUniqueGenres(games));
+
+  // 3. Initialize Cart Navigation
+  initCartUI(); // <-- CART INITIALIZED HERE
 }
 
 initHomepage();

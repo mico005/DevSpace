@@ -109,7 +109,7 @@ function buildPurchasePanelHtml(game) {
               aria-label="Buy ${game.title} for ${game.price}">
         BUY NOW
       </button>
-      <button class="wishlist-btn">+ Add to Wishlist</button>
+      <button class="wishlist-btn" id="add-cart-button">+ Add to Cart</button>
       <hr class="panel-divider" />
       <div class="panel-meta-row">
         <span class="panel-meta-key">Genre</span>

@@ -105,7 +105,7 @@
       "rating": "4.7",
       "description": "A rhythm game where the entire world is your instrument. Every surface, enemy, and platform produces sound — build up a live musical composition as you traverse each stage. Features 30 original tracks from indie electronic artists.",
       "tags": ["Rhythm", "Music", "Indie"],
-      "featured": false,
+      "featured": true,
       "screenshots": ["img/phase1.jpg", "img/phase2.jpg"],
       "specs": {
         "min": "4GB RAM, Intel HD 4000, i3-4130, Windows 10",

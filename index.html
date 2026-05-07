@@ -9,53 +9,122 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/home.css" />
   </head>
   <body>
-
-    <!-- NAV -->
     <nav>
       <a href="index.html" class="nav-logo">DEV<span>SPACE</span></a>
       <ul class="nav-links">
-        <li><a href="#">Browse</a></li>
         <li><a href="#">New Releases</a></li>
         <li><a href="#">Top Rated</a></li>
         <li><a href="#" class="nav-badge">Submit Game</a></li>
+        <li style="margin-left: 1rem;">
+          <a href="#" class="nav-cart-btn" id="nav-cart-btn" aria-label="Shopping Cart">
+            <i class="bi bi-cart3" style="font-size: 1.25rem;"></i>
+            <span class="nav-cart-badge" id="nav-cart-badge">0</span>
+          </a>
+        </li>
       </ul>
     </nav>
 
-    <!-- HERO (JS-rendered) -->
-    <section
-      class="hero"
-      id="hero-section"
-      aria-label="Featured Games"
-    ></section>
+    <section class="hero" id="hero-section" aria-label="Featured Games"></section>
 
-    <!-- CATALOG HEADER -->
     <div class="section-header">
       <h2 class="section-title">All <em>Games</em></h2>
       <span class="section-count" id="game-count">— games</span>
     </div>
 
-    <!-- FILTER BAR (JS-rendered) -->
-    <div
-      class="filter-bar"
-      id="filter-bar"
-      role="group"
-      aria-label="Filter by genre"
-    ></div>
+    <section class="catalog-layout">
+      
+      <aside class="catalog-sidebar" aria-label="Catalog Filters">
+        
+        <button class="mobile-filter-btn" id="mobile-filter-btn" aria-expanded="false">
+          FILTERS <span class="toggle-icon">▼</span>
+        </button>
 
-    <!-- CATALOG GRID (JS-rendered, skeleton shown initially) -->
-    <div id="game-catalog">
-      <div class="loading-grid" id="skeleton-grid"></div>
-    </div>
+        <div class="sidebar-content" id="sidebar-content">
+          
+          <div class="filter-group">
+            <div class="filter-title">Price Range</div>
+            
+            <div class="price-input-row">
+              <div class="price-input-wrapper">
+                <span class="price-currency">$</span>
+                <input type="number" id="price-min" class="price-number-input" placeholder="Min" min="0" value="0">
+              </div>
+              <span class="price-separator">-</span>
+              <div class="price-input-wrapper">
+                <span class="price-currency">$</span>
+                <input type="number" id="price-max" class="price-number-input" placeholder="Max" min="0">
+              </div>
+            </div>
 
-    <!-- FOOTER -->
+            <div class="dual-slider-container">
+              <div class="dual-slider-track"></div>
+              <div class="dual-slider-fill" id="price-slider-fill"></div>
+              <input type="range" id="price-min-slider" min="0" max="60" value="0" step="1">
+              <input type="range" id="price-max-slider" min="0" max="60" value="60" step="1">
+            </div>
+            
+            <div class="price-slider-labels">
+              <span>Free</span>
+              <span>$60+</span>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-title">Minimum Rating</div>
+            <label class="filter-label">
+              <input type="radio" name="rating" value="all" checked> Any Rating
+            </label>
+            <label class="filter-label">
+              <input type="radio" name="rating" value="4.5"> 4.5 & Above
+            </label>
+          </div>
+
+          <div class="filter-group" id="genre-filter-group">
+            <div class="filter-title">Genre</div>
+            </div>
+
+        </div>
+      </aside>
+
+      <div class="catalog-main">
+        <div class="catalog-search-wrapper">
+          <input 
+            type="search" 
+            id="catalog-search-input" 
+            class="catalog-search-input" 
+            placeholder="Search for games, tags, or creators..." 
+            autocomplete="off"
+            aria-label="Search catalog"
+          >
+        </div>
+        
+        <div id="game-catalog">
+          <div class="loading-grid" id="skeleton-grid"></div>
+        </div>
+      </div>
+
+    </section>
+
     <footer>
       <div class="footer-logo">DEVSPACE</div>
-      <div class="footer-copy">© 2026 DevSpace · An Indie Game Distribution Platform</div>
+      <div class="footer-copy">
+        © 2026 DevSpace · An Indie Game Distribution Platform
+      </div>
     </footer>
+
+    <div id="cart-overlay" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+      <div id="cart-modal"></div>
+    </div>
+
+    <div id="checkout-overlay" role="dialog" aria-modal="true" aria-label="Checkout">
+      <div id="checkout-modal"></div>
+    </div>
 
     <script type="module" src="scripts/pages/home.js"></script>
   </body>
