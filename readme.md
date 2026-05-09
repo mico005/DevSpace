@@ -45,6 +45,7 @@ The codebase strictly adheres to clean code principles, specifically the **Singl
 ├── index.html                # Homepage / Storefront
 ├── game.html                 # Dynamic Game Detail Page
 └── library.html              # User's Owned Games Collection
+```
 
 ## 👥 Meet the Team
 
