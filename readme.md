@@ -53,7 +53,7 @@ This project was collaboratively designed and developed by:
 
 * **Michael Devon Eka Putra**
 * **Ezekiel Matheo Barus**
-* **Hesekiel ANdhika Nainggolan**
+* **Hesekiel Andhika Nainggolan**
 
 ---
 

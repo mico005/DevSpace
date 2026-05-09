@@ -75,6 +75,7 @@
 
 .game-main {
   padding-right: 0;
+  min-width: 0;
 }
 
 .section-label {
@@ -114,7 +115,8 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  background: #000; /* Keeps letterboxing clean if aspect ratios don't perfectly match */
+  background: #000;
+
 }
 
 .gallery-thumb-track {
