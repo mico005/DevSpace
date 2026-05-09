@@ -33,14 +33,60 @@ function parsePrice(priceString) {
   return parseFloat(priceString.replace(/[^0-9.-]+/g, "")) || 0;
 }
 
-function matchesSearch(game, query) {
-  if (!query) return true;
-  const lowerQuery = query.toLowerCase();
-  return (
-    game.title.toLowerCase().includes(lowerQuery) ||
-    game.developer.toLowerCase().includes(lowerQuery) ||
-    game.genre.toLowerCase().includes(lowerQuery)
-  );
+function isSequentialFuzzyMatch(targetString, searchQuery) {
+  const normalizedTarget = targetString.toLowerCase();
+  const normalizedQuery = searchQuery.toLowerCase();
+
+  let queryIndex = 0;
+  let targetIndex = 0;
+
+  while (
+    queryIndex < normalizedQuery.length &&
+    targetIndex < normalizedTarget.length
+  ) {
+    if (normalizedQuery[queryIndex] === normalizedTarget[targetIndex]) {
+      queryIndex += 1;
+    }
+    targetIndex += 1;
+  }
+
+  return queryIndex === normalizedQuery.length;
+}
+
+function doesFieldMatchSearch(fieldValue, searchQuery) {
+  if (!fieldValue) return false;
+
+  const exactSubstringMatch = fieldValue
+    .toLowerCase()
+    .includes(searchQuery.toLowerCase());
+  if (exactSubstringMatch) return true;
+
+  return isSequentialFuzzyMatch(fieldValue, searchQuery);
+}
+
+function doTagsMatchSearch(tagsArray, searchQuery) {
+  if (!tagsArray || tagsArray.length === 0) return false;
+
+  let tagIndex = 0;
+  while (tagIndex < tagsArray.length) {
+    if (doesFieldMatchSearch(tagsArray[tagIndex], searchQuery)) {
+      return true;
+    }
+    tagIndex += 1;
+  }
+
+  return false;
+}
+
+function matchesSearch(game, searchQuery) {
+  if (!searchQuery) return true;
+
+  if (doesFieldMatchSearch(game.title, searchQuery)) return true;
+  if (doesFieldMatchSearch(game.developer, searchQuery)) return true;
+  if (doesFieldMatchSearch(game.genre, searchQuery)) return true;
+  if (doTagsMatchSearch(game.tags, searchQuery)) return true;
+
+  return false;
 }
 
 function matchesPrice(game, min, max) {
@@ -55,9 +101,15 @@ function matchesRating(game, ratingFilter) {
   return gameRating >= minRating;
 }
 
-function matchesGenre(game, activeGenre) {
-  if (activeGenre === "all") return true;
-  return game.genre === activeGenre;
+function matchesTags(game, activeTags) {
+  // If no tags are selected, show all games
+  if (!activeTags || activeTags.length === 0) return true;
+
+  // If the game has no tags but tags are selected, it fails
+  if (!game.tags) return false;
+
+  // AND logic: the game must contain ALL selected tags
+  return activeTags.every((tag) => game.tags.includes(tag));
 }
 
 function applyCatalogFilters(games, state) {
@@ -65,7 +117,7 @@ function applyCatalogFilters(games, state) {
     if (!matchesSearch(game, state.search)) return false;
     if (!matchesPrice(game, state.priceMin, state.priceMax)) return false;
     if (!matchesRating(game, state.rating)) return false;
-    if (!matchesGenre(game, state.genre)) return false;
+    if (!matchesTags(game, state.tags)) return false;
     return true;
   });
 }

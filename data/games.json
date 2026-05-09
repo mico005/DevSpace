@@ -2,16 +2,29 @@
   "games": [
     {
       "id": "1",
-      "title": "Neon Horizon",
-      "developer": "PixelForge Indie",
-      "price": "$9.99",
-      "genre": "Platformer",
+      "title": "Courier Chaos",
+      "developer": "NitroBooStudio",
+      "price": "$14.99",
+      "genre": "Racing",
       "rating": "4.8",
-      "description": "A fast-paced cyberpunk platformer set in a dystopian megacity. Dodge laser grids, hack security systems, and outrun corporate enforcers across 40 handcrafted levels. Featuring a synthwave soundtrack and fluid wall-running mechanics that reward mastery.",
-      "tags": ["Cyberpunk", "Platformer", "Action"],
+      "description": "Time is money, and you are the fastest, most reckless delivery driver in the metropolis. Memorize complex city layouts, hit ramps to jump over gridlocked traffic, and deliver suspicious packages before the timer hits zero—all while avoiding the local authorities.",
+      "tags": [
+        "Racing",
+        "Driving",
+        "Strategy",
+        "Time Attack",
+        "Competition",
+        "Simulator"
+      ],
       "featured": true,
-      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778163926/Trailers_oqno51.mp4",
-      "screenshots": ["img/neon1.jpg", "img/neon2.jpg", "img/neon3.jpg"],
+      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778321497/game_trailer_tdg8wz.mp4",
+      "banner": "media/imgs/courier_chaos/icon.png",
+      "thumbnail": "media/imgs/courier_chaos/icon.png",
+      "screenshots": [
+        "media/imgs/courier_chaos/screenshot1.webp",
+        "media/imgs/courier_chaos/screenshot2.webp",
+        "media/imgs/courier_chaos/screenshot3.png"
+      ],
       "specs": {
         "min": "4GB RAM, GTX 750, i5-4460, Windows 10",
         "rec": "8GB RAM, GTX 1060, i7-6700K, Windows 10/11"
@@ -19,16 +32,22 @@
     },
     {
       "id": "2",
-      "title": "Verdant Abyss",
-      "developer": "Mossy Root Studios",
-      "price": "$14.99",
-      "genre": "Exploration",
+      "title": "Warthammer 40k + 1: The Battle for the Golden Hygiene",
+      "developer": "Bad Hygiene Studio",
+      "price": "$19.99",
+      "genre": "RPG",
       "rating": "4.6",
-      "description": "Descend into a bioluminescent underground world teeming with alien flora and ancient mysteries. Craft tools from rare minerals, cultivate symbiotic plants, and unravel the story of a civilization that fled underground centuries ago.",
-      "tags": ["Exploration", "Crafting", "Mystery"],
+      "description": "The Emperor has been constipated for ten millennia. You lead the 'Janitorum Guard,' an elite force dedicated to securing the legendary 'Golden Plunger' from the clutches of the 'Dysentery Demons' and the 'Orks Who Just Want a Good Flush.' It’s a messy, grimdark war, but someone has to clean it up.",
+      "tags": ["RPG", "Strategy", "Survival", "Open World"],
       "featured": true,
-      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778163926/Trailers_oqno51.mp4",
-      "screenshots": ["img/verdant1.jpg", "img/verdant2.jpg"],
+      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778321497/game_trailer_tdg8wz.mp4",
+      "banner": "media/imgs/warhammer_40001/icon.png",
+      "thumbnail": "media/imgs/warhammer_40001/icon.png",
+      "screenshots": [
+        "media/imgs/warhammer_40001/screenshot1.png",
+        "media/imgs/warhammer_40001/screenshot2.png",
+        "media/imgs/warhammer_40001/screenshot3.png"
+      ],
       "specs": {
         "min": "6GB RAM, GTX 960, i5-6500, Windows 10",
         "rec": "12GB RAM, RTX 2060, i7-8700, Windows 10/11"
@@ -36,18 +55,22 @@
     },
     {
       "id": "3",
-      "title": "Hollow Epoch",
+      "title": "Hollow Quest",
       "developer": "Dusk Assembly",
       "price": "$12.99",
       "genre": "RPG",
       "rating": "4.9",
       "description": "A haunting action-RPG set in a world where time has shattered into overlapping eras. Shift between past and future versions of every location, manipulating history to forge a new present. Features 60+ hours of non-linear storytelling.",
-      "tags": ["RPG", "Time Travel", "Story-Rich"],
+      "tags": ["RPG", "Medieval", "Story-Rich", "Roguelite"],
       "featured": true,
-      "thumbnail": "media/imgs/hollow1.jpeg",
-      "banner": "media/imgs/hollow1.jpeg",
-      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778163926/Trailers_oqno51.mp4",
-      "screenshots": ["media/imgs/hollow1.jpeg", "img/hollow2.jpg"],
+      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778321497/game_trailer_tdg8wz.mp4",
+      "banner": "media/imgs/hollow_quest/banner.jpeg",
+      "thumbnail": "media/imgs/hollow_quest/thumbnail.png",
+      "screenshots": [
+        "media/imgs/hollow_quest/screenshot1.png",
+        "media/imgs/hollow_quest/screenshot2.png",
+        "media/imgs/hollow_quest/screenshot3.png"
+      ],
       "specs": {
         "min": "8GB RAM, GTX 1050 Ti, i5-7400, Windows 10",
         "rec": "16GB RAM, RTX 2070, i7-9700K, Windows 10/11"
@@ -55,16 +78,22 @@
     },
     {
       "id": "4",
-      "title": "Saltpeak",
-      "developer": "Fjord Games",
+      "title": "Transit",
+      "developer": "Cardillac Games",
       "price": "$7.99",
       "genre": "Puzzle",
       "rating": "4.5",
-      "description": "A serene puzzle game set atop stormy Nordic peaks. Guide wind currents to carry seeds across treacherous cliffs, regrowing a shattered mountain ecosystem. 80 meditative levels with no timers, no enemies — just you and the elements.",
-      "tags": ["Puzzle", "Relaxing", "Nature"],
+      "description": "Cater to the elite in the world of high-end, bespoke transport. Take the wheel of ultra-luxury coaches engineered for VIP clients. You must focus on maintaining a buttery-smooth ride, utilizing advanced performance tuning for your suspension and engine, and customizing the cabin with lavish interiors to ensure five-star reviews from high-paying passengers.",
+      "tags": ["Driving", "Open World", "Simulator"],
       "featured": false,
-      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778163926/Trailers_oqno51.mp4",
-      "screenshots": ["img/salt1.jpg", "img/salt2.jpg"],
+      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778321497/game_trailer_tdg8wz.mp4",
+      "banner": "media/imgs/transit/icon.png",
+      "thumbnail": "media/imgs/transit/icon.png",
+      "screenshots": [
+        "media/imgs/transit/screenshot1.png",
+        "media/imgs/transit/screenshot2.png",
+        "media/imgs/transit/screenshot3.png"
+      ],
       "specs": {
         "min": "4GB RAM, Intel HD 620, i3-6100, Windows 10",
         "rec": "8GB RAM, GTX 1050, i5-7500, Windows 10/11"
@@ -72,16 +101,21 @@
     },
     {
       "id": "5",
-      "title": "Iron Caravan",
+      "title": "Banquet of Crowns",
       "developer": "Dustroad Collective",
       "price": "$11.99",
       "genre": "Strategy",
       "rating": "4.4",
-      "description": "Command a mercenary trading convoy across a fractured continent. Negotiate with warlords, manage crew morale, and make split-second decisions when bandits ambush your route. Every playthrough generates a new political map.",
-      "tags": ["Strategy", "Trading", "Roguelite"],
+      "description": "As the personal chef to a politically vulnerable monarch, your menu choices dictate the fate of the realm. Prepare extravagant, multi-course feasts for visiting dignitaries, navigating a complex web of cultural taboos, dietary restrictions, and assassination attempts. One misplaced drop of nightshade or an undercooked swan could spark an all-out war.",
+      "tags": ["Simulator", "Strategy", "Cooking", "Roguelite", "Political"],
       "featured": false,
-
-      "screenshots": ["img/iron1.jpg", "img/iron2.jpg"],
+      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778321497/game_trailer_tdg8wz.mp4",
+      "banner": "media/imgs/banquet_crowns/banner.png",
+      "thumbnail": "media/imgs/banquet_crowns/thumbnail.png",
+      "screenshots": [
+        "media/imgs/banquet_crowns/screenshot1.png",
+        "media/imgs/banquet_crowns/screenshot2.png"
+      ],
       "specs": {
         "min": "4GB RAM, Intel HD 630, i3-7100, Windows 10",
         "rec": "8GB RAM, GTX 1060, i5-8400, Windows 10/11"
@@ -89,16 +123,21 @@
     },
     {
       "id": "6",
-      "title": "Deeproot",
+      "title": "Messenger",
       "developer": "Ferncroft Labs",
       "price": "$8.99",
       "genre": "Survival",
       "rating": "4.3",
-      "description": "Survive the collapse of a forest ecosystem by playing as a network of underground mycelium. Spread your fungal network, trade nutrients with trees, and defend against invasive species in this unique survival-strategy hybrid.",
-      "tags": ["Survival", "Unique", "Strategy"],
+      "description": "Act as the chief communications architect for an expanding empire. You must design a flawless pigeon-based messaging framework. Establish modular routing nodes in high towers, assign highly descriptive, unambiguous tags to message cylinders, and prevent infinite loops where confused birds deliver the same declaration of war back and forth until they drop from exhaustion..",
+      "tags": ["Puzzle", "Simulator", "Strategy", "Open World", "Management"],
       "featured": false,
-      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778163926/Trailers_oqno51.mp4",
-      "screenshots": ["img/deep1.jpg", "img/deep2.jpg"],
+      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778321497/game_trailer_tdg8wz.mp4",
+      "banner": "media/imgs/messenger/banner.png",
+      "thumbnail": "media/imgs/messenger/thumbnail.png",
+      "screenshots": [
+        "media/imgs/messenger/screenshot1.png",
+        "media/imgs/messenger/screenshot2.png"
+      ],
       "specs": {
         "min": "4GB RAM, GTX 950, i5-4590, Windows 10",
         "rec": "8GB RAM, GTX 1070, i7-7700, Windows 10/11"
@@ -106,16 +145,29 @@
     },
     {
       "id": "7",
-      "title": "Phase Shift",
+      "title": "Prime Directive: Optimize",
       "developer": "Cadence Works",
       "price": "$6.99",
       "genre": "Rhythm",
       "rating": "4.7",
-      "description": "A rhythm game where the entire world is your instrument. Every surface, enemy, and platform produces sound — build up a live musical composition as you traverse each stage. Features 30 original tracks from indie electronic artists.",
-      "tags": ["Rhythm", "Music", "Indie"],
+      "description": "As an industrial labor unit dropped onto a resource-rich exoplanet, your job is to build a massive, perfectly optimized extraction facility. Construct sprawling conveyor belts and complex smelting nodes. Keep your production lines clean, enforce strict separation of concerns between raw material refining and high-end manufacturing zones, and continuously refactor your factory layout to ensure the simplest, most effective",
+      "tags": [
+        "Management",
+        "Factory",
+        "Automation",
+        "RPG",
+        "Open World",
+        "Sandbox"
+      ],
       "featured": true,
-      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778163926/Trailers_oqno51.mp4",
-      "screenshots": ["img/phase1.jpg", "img/phase2.jpg"],
+      "trailer": "https://res.cloudinary.com/de7cw47ce/video/upload/v1778321497/game_trailer_tdg8wz.mp4",
+      "banner": "media/imgs/prime_directive/banner.png",
+      "thumbnail": "media/imgs/prime_directive/thumbnail.png",
+      "screenshots": [
+        "media/imgs/prime_directive/screenshot1.png",
+        "media/imgs/prime_directive/screenshot2.png",
+        "media/imgs/prime_directive/screenshot3.png"
+      ],
       "specs": {
         "min": "4GB RAM, Intel HD 4000, i3-4130, Windows 10",
         "rec": "8GB RAM, GTX 970, i5-6500, Windows 10/11"

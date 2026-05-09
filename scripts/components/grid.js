@@ -33,15 +33,22 @@ function buildThumbnailHtml(game) {
 function buildGameCard(game, delay) {
   const card = document.createElement("a");
   card.className = "game-card";
-  card.href      = `game.html?id=${game.id}`;
+  card.href = `game.html?id=${game.id}`;
   card.style.animationDelay = `${delay}ms`;
-  card.setAttribute("aria-label", `${game.title} by ${game.developer} — ${game.price}`);
+  card.setAttribute(
+    "aria-label",
+    `${game.title} by ${game.developer} — ${game.price}`,
+  );
+
+  // Safely grab the first tag, fallback to genre if tags array is empty/missing
+  const displayTag =
+    game.tags && game.tags.length > 0 ? game.tags[0] : game.genre;
 
   card.innerHTML = `
     <div class="card-thumb">
       <div class="card-thumb-bg">${buildThumbnailHtml(game)}</div>
       <div class="card-thumb-overlay"><span>View Game</span></div>
-      <div class="card-genre-badge">${game.genre}</div>
+      <div class="card-genre-badge">${displayTag}</div>
     </div>
     <div class="card-body">
       <div class="card-title">${game.title}</div>

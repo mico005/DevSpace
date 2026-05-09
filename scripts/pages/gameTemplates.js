@@ -146,7 +146,7 @@ function buildDetailPageHtml(game) {
       <div class="game-hero-backdrop">${buildHeroBackdropHtml(game)}</div>
       <div class="game-hero-fade"></div>
       <div class="game-hero-content">
-        <span class="game-genre-tag">${game.genre}</span>
+        <span class="game-genre-tag">${game.tags?.[0] || game.genre}</span>
         <h1 class="game-title-hero">${game.title}</h1>
         <p class="game-developer-hero">by <strong>${game.developer}</strong></p>
       </div>

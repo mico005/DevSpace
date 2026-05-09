@@ -72,11 +72,15 @@ function buildLibraryCard(game, delay, onRemoveCallback) {
   card.className = "game-card library-card";
   card.style.animationDelay = `${delay}ms`;
 
+  // Safely grab the first tag
+  const displayTag =
+    game.tags && game.tags.length > 0 ? game.tags[0] : game.genre;
+
   card.innerHTML = `
     <div class="card-thumb">
       <div class="card-thumb-bg">${buildThumbnailHtml(game)}</div>
       <div class="card-thumb-overlay"><span>View Game</span></div>
-      <div class="card-genre-badge">${game.genre}</div>
+      <div class="card-genre-badge">${displayTag}</div>
     </div>
     <div class="card-body">
       <div class="card-title">${game.title}</div>

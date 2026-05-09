@@ -24,7 +24,7 @@ function buildHeroSlideHtml(game, index) {
         <div class="hero-grid-lines"></div>
       </div>
       <div class="hero-content">
-        <span class="hero-tag">${game.genre}</span>
+        <span class="hero-tag">${game.tags?.[0] || game.genre}</span>
         <div class="hero-title">${game.title}</div>
         <div class="hero-meta">
           <span>${game.developer}</span>

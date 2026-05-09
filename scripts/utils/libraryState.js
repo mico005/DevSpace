@@ -1,10 +1,10 @@
 // scripts/utils/libraryState.js — Library State Manager (DevSpace)
-// Single Responsibility: Manages owned games persistence via sessionStorage
+// Single Responsibility: Manages owned games persistence via localStorage
 
 const LIBRARY_KEY = "devspace_library";
 
 function getLibrary() {
-  return JSON.parse(sessionStorage.getItem(LIBRARY_KEY) || "[]");
+  return JSON.parse(localStorage.getItem(LIBRARY_KEY) || "[]");
 }
 
 function addGamesToLibrary(games) {
@@ -14,7 +14,7 @@ function addGamesToLibrary(games) {
   const newGames = games.filter((g) => !existingIds.has(g.id));
 
   if (newGames.length > 0) {
-    sessionStorage.setItem(
+    localStorage.setItem(
       LIBRARY_KEY,
       JSON.stringify([...library, ...newGames]),
     );
@@ -23,7 +23,7 @@ function addGamesToLibrary(games) {
 
 function removeGameFromLibrary(id) {
   const library = getLibrary().filter((g) => g.id !== id);
-  sessionStorage.setItem(LIBRARY_KEY, JSON.stringify(library));
+  localStorage.setItem(LIBRARY_KEY, JSON.stringify(library));
 }
 
 export { getLibrary, addGamesToLibrary, removeGameFromLibrary };

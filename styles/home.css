@@ -311,6 +311,31 @@
   cursor: pointer;
 }
 
+.filter-scroll-area {
+  max-height: 220px; /* Adjust this value to fit your preferred sidebar height */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-right: 0.5rem; /* Prevents text from overlapping the scrollbar */
+  
+  /* Firefox Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) transparent;
+}
+
+/* Webkit (Chrome/Safari/Edge) Scrollbar */
+.filter-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.filter-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.filter-scroll-area::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 3px;
+}
+
 /* ── PRICE SLIDER & INPUTS ── */
 .price-input-row {
   display: flex;

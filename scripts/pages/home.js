@@ -38,8 +38,9 @@ function showErrorState(container) {
   `;
 }
 
-function getUniqueGenres(games) {
-  return [...new Set(games.map((g) => g.genre))];
+function getUniqueTags(games) {
+  const allTags = games.flatMap((g) => g.tags || []);
+  return [...new Set(allTags)].sort();
 }
 
 function getFeaturedGames(games) {
@@ -64,7 +65,7 @@ async function initHomepage() {
   initHeroCarousel(heroSection, getFeaturedGames(games));
 
   // 2. Initialize Sidebar Filters & Search
-  initBrowseController(games, getUniqueGenres(games));
+  initBrowseController(games, getUniqueTags(games));
 
   // 3. Initialize Cart Navigation
   initCartUI(); // <-- CART INITIALIZED HERE

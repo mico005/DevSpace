@@ -9,7 +9,7 @@ const state = {
   priceMin: 0,
   priceMax: Infinity,
   rating: "all",
-  genre: "all",
+  tags: [],
 };
 
 function getElement(id) {
@@ -112,34 +112,46 @@ function handlePriceSync(event, allGames) {
   renderFilteredGrid(allGames);
 }
 
-function handleRadioChange(event, allGames) {
+function handleFilterChange(event, allGames) {
   const target = event.target;
-  if (target.name === "rating") state.rating = target.value;
-  if (target.name === "genre") state.genre = target.value;
+
+  if (target.name === "rating") {
+    state.rating = target.value;
+  }
+
+  if (target.name === "tag") {
+    if (target.checked) {
+      state.tags.push(target.value);
+    } else {
+      state.tags = state.tags.filter((t) => t !== target.value);
+    }
+  }
 
   renderFilteredGrid(allGames);
 }
 
-function buildGenreRadioHtml(genre) {
+function buildTagCheckboxHtml(tag) {
   return `
     <label class="filter-label">
-      <input type="radio" name="genre" value="${genre}"> ${genre}
+      <input type="checkbox" name="tag" value="${tag}"> ${tag}
     </label>
   `;
 }
 
-function populateGenreSidebar(genres) {
+// 4. Replace populateGenreSidebar
+function populateTagSidebar(tags) {
   const container = getElement("genre-filter-group");
   if (!container) return;
 
-  const allHtml = `
-    <label class="filter-label">
-      <input type="radio" name="genre" value="all" checked> All Genres
-    </label>
-  `;
-  const genresHtml = genres.map(buildGenreRadioHtml).join("");
+  const tagsHtml = tags.map(buildTagCheckboxHtml).join("");
 
-  container.insertAdjacentHTML("beforeend", allHtml + genresHtml);
+  // Keep the title fixed, wrap the tags in a scroll container
+  container.innerHTML = `
+    <div class="filter-title">Tags</div>
+    <div class="filter-scroll-area">
+      ${tagsHtml}
+    </div>
+  `;
 }
 
 function setupMobileToggle() {
@@ -157,8 +169,8 @@ function setupMobileToggle() {
   });
 }
 
-function initBrowseController(allGames, genres) {
-  populateGenreSidebar(genres);
+function initBrowseController(allGames, tags) {
+  populateTagSidebar(tags);
   setupMobileToggle();
 
   const searchInput = getElement("catalog-search-input");
@@ -175,8 +187,11 @@ function initBrowseController(allGames, genres) {
     el?.addEventListener("input", (e) => handlePriceSync(e, allGames));
   });
 
+  // Listen for both radios and checkboxes
   catalogLayout?.addEventListener("change", (e) => {
-    if (e.target.type === "radio") handleRadioChange(e, allGames);
+    if (e.target.type === "radio" || e.target.type === "checkbox") {
+      handleFilterChange(e, allGames);
+    }
   });
 
   updateSliderFill();
