@@ -124,6 +124,12 @@
       <div id="checkout-modal"></div>
     </div>
 
+    <script>
+      if (window.location.protocol === 'file:') {
+        alert("Halo! Mohon maaf sebelumnya, karena proyek ini menggunakan Fetch API untuk memuat data, membuka file secara lokal (file://) akan menyebabkan kendala CORS sehingga daftar game tidak akan muncul.\n\nSilakan klik OK untuk diarahkan ke versi live yang berfungsi dengan sempurna. Terima kasih!");
+        window.location.href = 'https://mico005.github.io/DevSpace/';
+      }
+    </script>
     <script type="module" src="scripts/pages/home.js"></script>
   </body>
 </html>

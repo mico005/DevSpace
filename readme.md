@@ -58,4 +58,3 @@ This project was collaboratively designed and developed by:
 ---
 
 *Developed for Pemrograman Web Midterm Project — 2026*
-```
